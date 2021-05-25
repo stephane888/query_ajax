@@ -1,0 +1,6 @@
+name: Query ajax
+type: module
+description: permet d&#039;executer les requetes founit par example par ajax
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

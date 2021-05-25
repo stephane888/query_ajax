@@ -1,0 +1,4 @@
+administer query_ajax configuration:
+  title: 'Administer query_ajax configuration'
+  description: 'Optional description.'
+  restrict access: true

@@ -1,0 +1,9 @@
+services:
+  query_ajax.insert_update:
+    class: Drupal\query_ajax\Services\InsertUpdate
+    arguments: ['@database','@ajax_status.status']
+    
+  query_ajax.select:
+    class: Drupal\query_ajax\Services\Select
+    arguments: ['@database','@request_stack']
+    

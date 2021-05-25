@@ -1,0 +1,39 @@
+[
+  {
+    table:"nom_de_la_table",
+    'fields': {
+      'nom_column1': 'valaue',
+      'nom_column2': 'valaue',
+      'nom_column-n': 'valaue',
+    }
+  },
+  # ajout des données.
+  {
+    table:"nom_de_la_table-2",
+    'fields': {
+      'nom_column1': 'valaue',
+      'nom_column2': 'valaue',
+      'nom_column-n': 'valaue',
+    }
+  }
+  # Mise à jour des données.
+  {
+    table:"nom_de_la_table-2",
+    'fields': {
+      'nom_column1': 'valaue',
+      'nom_column2': 'valaue',
+      'nom_column-n': 'valaue',
+    },
+    'where':[
+      {
+        'column':'nom de la colonne',
+        'value':'valeur à modifier'
+      },
+      {
+        'column':'nom de la colonne',
+        'value':'valeur à modifier'
+      },
+      ...
+    ]
+  }
+]

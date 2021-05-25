@@ -1,0 +1,7 @@
+query_ajax.example:
+  path: '/query-ajax/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\query_ajax\Controller\QueryAjaxController::build'
+  requirements:
+    _permission: 'access content'
