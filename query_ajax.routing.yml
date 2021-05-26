@@ -5,3 +5,21 @@ query_ajax.example:
     _controller: '\Drupal\query_ajax\Controller\QueryAjaxController::build'
   requirements:
     _permission: 'access content'
+
+query_ajax.insert_update:
+  path: '/query-ajax/insert-update'
+  methods: [POST,PUT,HEAD]
+  defaults:
+    _title: 'insert datas'
+    _controller: '\Drupal\query_ajax\Controller\QueryAjaxController::Save'
+  requirements:
+    _permission: 'access content'
+
+query_ajax.select:
+  path: '/query-ajax/select'
+  methods: [GET,HEAD]
+  defaults:
+    _title: 'select datas.'
+    _controller: '\Drupal\query_ajax\Controller\QueryAjaxController::Select'
+  requirements:
+    _permission: 'access content'
