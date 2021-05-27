@@ -17,7 +17,7 @@ query_ajax.insert_update:
 
 query_ajax.select:
   path: '/query-ajax/select'
-  methods: [GET,HEAD]
+  methods: [POST,PUT,HEAD]
   defaults:
     _title: 'select datas.'
     _controller: '\Drupal\query_ajax\Controller\QueryAjaxController::Select'
