@@ -6,21 +6,28 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Database\DatabaseException;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Drupal\Component\Serialization\Json;
+use Drupal\ajax_status\Services\Status;
 
 class Select {
 	protected $request;
 	protected $Connection;
-	function __construct(Connection $Connection, RequestStack $RequestStack){
+	public $AjaxStatus;
+	function __construct(Connection $Connection, RequestStack $RequestStack, Status $Status){
 		$this->Connection = $Connection;
 		$this->request = $RequestStack->getCurrentRequest();
+		$this->AjaxStatus = $Status;
 	}
 	function select(){
 		$results = [];
 		try{
 			$param = $this->request->getContent();
 			$results = $this->getDatas( $param );
+			$this->AjaxStatus->Codes->setCode( 200 );
+			$this->AjaxStatus->Messages->setMessage( "Chargement des données ..." );
 		}
 		catch( DatabaseException $e ){
+			$this->AjaxStatus->Codes->setCode( 405 );
+			$this->AjaxStatus->Messages->setMessage( $e->getMessage() );
 			$results = [
 					'status'=> false,
 					'message'=> $e->getMessage(),
@@ -28,6 +35,8 @@ class Select {
 			];
 		}
 		catch( \Error $e ){
+			$this->AjaxStatus->Codes->setCode( 405 );
+			$this->AjaxStatus->Messages->setMessage( $e->getMessage() );
 			$results = [
 					'status'=> false,
 					'message'=> $e->getMessage(),
@@ -42,7 +51,7 @@ class Select {
 				->fetchAll( \PDO::FETCH_ASSOC );
 		}
 		else{
-			throw new \Error( " Erreur dans la requette, la requette doit contenir select " );
+			throw new \Error( " Erreur dans la requette de selection de données, la requette doit contenir select " );
 		}
 	}
 }

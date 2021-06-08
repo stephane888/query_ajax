@@ -5,5 +5,5 @@ services:
     
   query_ajax.select:
     class: Drupal\query_ajax\Services\Select
-    arguments: ['@database','@request_stack']
+    arguments: ['@database','@request_stack','@ajax_status.status']
     
