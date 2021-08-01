@@ -1,0 +1,14 @@
+{
+    "name": "stephane888/query_ajax",
+    "description": "Requette Ajax",
+    "type": "drupal-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "stephane888",
+            "email": "kksasteph888@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
