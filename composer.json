@@ -11,6 +11,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-    	"stephane888/ajax_status": "^1.0"
+    	"stephane888/ajax_status": "^1.0 | dev-1x"
     }
 }
